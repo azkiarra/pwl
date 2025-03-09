@@ -1,13 +1,18 @@
 <?php
-    include "Mahasiswa.php";
+include "Mahasiswa.php";
+include "MahasiswaTransfer.php";
 
-    echo "Data Mahasiswa: <br>";
+$daftar_nilai = [
+    "A22.123" => ['sks' => 2, 'nilai' => 'A'],
+    "A22.456" => ['sks' => 3, 'nilai' => 'B'],
+    "A22.789" => ['sks' => 2, 'nilai' => 'C']
+];
 
-    $mahasiswa1 = new Mahasiswa();
-    $mahasiswa1->setData('A11.2000.00001', 'Fulan', 'Teknik Informatika');
-    $mahasiswa1->tampilkanData();
+$mahasiswa_1 = new MahasiswaTransfer($daftar_nilai);
 
-    $mahasiswa2 = new Mahasiswa();
-    $mahasiswa2->setData('A12.2000.00001', 'Junior', 'Sistem Informasi');
-    $mahasiswa2->tampilkanData();
+$mahasiswa_1->setData("A11.2023.12345", "Aprilyani Nur Safitri", "2000-01-17");
+
+echo "<pre>";
+print_r($mahasiswa_1->getData());
+echo "</pre>";
 ?>
